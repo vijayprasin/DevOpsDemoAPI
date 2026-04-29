@@ -21,4 +21,4 @@ steps:
   inputs:
     azureSubscription: 'Azure-Service-Connection'
     appName: 'Devopsapivijay'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)'
