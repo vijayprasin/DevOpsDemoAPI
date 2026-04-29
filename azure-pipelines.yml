@@ -20,5 +20,5 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Azure-Service-Connection'
-    appName: 'devopsapivijay-hud5aab8c4h9gdv'
-    package: '$(Build.ArtifactStagingDirectory)'
+    appName: 'devopsapivijay'
+    package: '$(System.DefaultWorkingDirectory)'
