@@ -5,6 +5,7 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
+
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
@@ -12,3 +13,12 @@ steps:
 
 - script: dotnet build
   displayName: 'Build Project'
+
+- script: dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
+  displayName: 'Publish Project'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure-Service-Connection'
+    appName: 'vijaywebapi123'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
